@@ -99,10 +99,15 @@ export const experience: Experience[] = [
 
 export const softSkills = ['Leadership', 'Co-operation', 'Communication', 'Problem-solving']
 
-export const hardSkills = [
+export type Skill = string | { label: string; href: string }
+
+export const hardSkills: Skill[] = [
   'Advocacy',
   'Microsoft Word & Excel',
-  'CPR / First Aid / AED Certified',
+  {
+    label: 'CPR / First Aid / AED Certified',
+    href: '/documents/serena-lie-cpr-first-aid-aed-certificate.pdf',
+  },
 ]
 
 export const languages = [
