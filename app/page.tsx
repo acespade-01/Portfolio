@@ -1,5 +1,6 @@
 import { SiteHeader } from '@/components/portfolio/site-header'
 import { Hero } from '@/components/portfolio/hero'
+import { ScrollReveal } from '@/components/portfolio/scroll-reveal'
 import {
   About,
   Contact,
@@ -28,6 +29,7 @@ export default function Page() {
           </a>
         </div>
       </footer>
+      <ScrollReveal />
     </>
   )
 }

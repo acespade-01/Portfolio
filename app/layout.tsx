@@ -46,7 +46,20 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${geist.variable} ${instrumentSerif.variable}`}>
+    <html
+      lang="en"
+      className={`${geist.variable} ${instrumentSerif.variable}`}
+      suppressHydrationWarning
+    >
+      <head>
+        {/* Hides content until scroll-reveal targets are prepared, avoiding a flash before the fade-up. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "if(!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add('reveal-pending');setTimeout(function(){document.documentElement.classList.remove('reveal-pending')},3000)}",
+          }}
+        />
+      </head>
       <body className="font-sans antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
