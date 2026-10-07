@@ -7,6 +7,7 @@ import {
   languages,
   profile,
   softSkills,
+  type Skill,
 } from '@/lib/resume'
 
 export function About() {
@@ -52,16 +53,37 @@ export function ExperienceSection() {
   )
 }
 
-function SkillList({ heading, items }: { heading: string; items: string[] }) {
+function SkillList({ heading, items }: { heading: string; items: Skill[] }) {
   return (
     <div>
       <h3 className="mb-4 text-xs uppercase tracking-[0.2em] text-muted-foreground">{heading}</h3>
       <ul className="border-t border-foreground/20">
-        {items.map((item) => (
-          <li key={item} className="border-b border-foreground/20 py-3 text-sm">
-            {item}
-          </li>
-        ))}
+        {items.map((item) =>
+          typeof item === 'string' ? (
+            <li key={item} className="border-b border-foreground/20 py-3 text-sm">
+              {item}
+            </li>
+          ) : (
+            <li key={item.label} className="border-b border-foreground/20 text-sm">
+              <a
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center justify-between gap-3 py-3 underline decoration-foreground/30 underline-offset-4 transition-colors hover:decoration-foreground"
+              >
+                <span>{item.label}</span>
+                <span className="flex shrink-0 items-center gap-1 text-xs uppercase tracking-widest text-muted-foreground no-underline group-hover:text-foreground">
+                  View
+                  <ArrowUpRight
+                    className="size-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                    aria-hidden="true"
+                  />
+                </span>
+                <span className="sr-only">(opens certificate PDF in a new tab)</span>
+              </a>
+            </li>
+          ),
+        )}
       </ul>
     </div>
   )
