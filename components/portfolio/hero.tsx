@@ -15,6 +15,9 @@ export function Hero() {
           <h1 className="font-serif text-7xl leading-[0.9] tracking-tight text-balance sm:text-8xl lg:text-9xl">
             Serena <span className="italic">Lie</span>
           </h1>
+          <p className="mt-5 font-serif text-xl italic text-muted-foreground sm:text-2xl">
+            Biomolecular Engineering and Bioinformatics B.S.
+          </p>
           <div className="relative mt-10 grid gap-4 pt-6 text-sm sm:grid-cols-2">
             <span
               aria-hidden="true"
