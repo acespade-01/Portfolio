@@ -49,19 +49,19 @@
 
 :root {
   color-scheme: light;
-  --background: #f3ede2;
+  --background: #fbf8f2;
   --foreground: #141414;
-  --card: #f8f4ec;
+  --card: #fdfbf7;
   --card-foreground: #141414;
-  --popover: #f8f4ec;
+  --popover: #fdfbf7;
   --popover-foreground: #141414;
   --primary: #141414;
-  --primary-foreground: #f3ede2;
-  --secondary: #e9e1d3;
+  --primary-foreground: #fbf8f2;
+  --secondary: #f2ece1;
   --secondary-foreground: #141414;
-  --muted: #e9e1d3;
+  --muted: #f2ece1;
   --muted-foreground: #5f5a52;
-  --accent: #e9e1d3;
+  --accent: #f2ece1;
   --accent-foreground: #141414;
   --destructive: oklch(0.577 0.245 27.325);
   --border: #141414;
