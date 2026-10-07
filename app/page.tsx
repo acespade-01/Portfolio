@@ -21,7 +21,7 @@ export default function Page() {
         <Education />
         <Contact />
       </main>
-      <footer className="border-t border-foreground">
+      <footer className="snap-end border-t border-foreground">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6 text-xs text-muted-foreground">
           <span>© 2026 Serena Lie</span>
           <a href="#top" className="underline-offset-4 hover:underline">

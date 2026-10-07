@@ -10,7 +10,7 @@ export function Section({ id, index, title, children }: SectionProps) {
     <section
       id={id}
       aria-labelledby={`${id}-heading`}
-      className="relative grid scroll-mt-20 gap-8 py-16 md:grid-cols-[220px_1fr] md:gap-12 md:py-24"
+      className="relative grid min-h-[calc(100svh-3.5rem)] snap-start content-center gap-8 py-16 md:grid-cols-[220px_1fr] md:gap-12 md:py-20"
     >
       <span
         aria-hidden="true"

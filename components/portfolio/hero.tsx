@@ -4,7 +4,7 @@ import { profile } from '@/lib/resume'
 
 export function Hero() {
   return (
-    <section id="top" aria-label="Introduction" className="py-16 md:py-24">
+    <section id="top" aria-label="Introduction" className="flex min-h-[calc(100svh-3.5rem)] snap-start flex-col justify-center py-10 md:py-12">
       <div className="mb-10 flex items-center justify-between text-xs uppercase tracking-[0.2em] text-muted-foreground">
         <span>Portfolio</span>
         <span>2026</span>
