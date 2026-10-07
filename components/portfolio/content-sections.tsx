@@ -31,17 +31,20 @@ export function ExperienceSection() {
                 <p className="text-sm text-muted-foreground">{item.organization}</p>
               )}
             </div>
-            <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground sm:text-right">
-              {item.term}
-            </p>
-            <ul className="mt-2 space-y-2 text-sm leading-relaxed sm:col-span-2">
-              {item.points.map((point) => (
-                <li key={point} className="flex gap-3">
-                  <span aria-hidden="true" className="mt-2.5 h-px w-4 shrink-0 bg-foreground" />
-                  <span>{point}</span>
-                </li>
-              ))}
-            </ul>
+            <div className="flex flex-col gap-1 font-mono text-xs uppercase tracking-widest text-muted-foreground sm:text-right">
+              <p>{item.term}</p>
+              {item.location && <p>{item.location}</p>}
+            </div>
+            {item.points.length > 0 && (
+              <ul className="mt-2 space-y-2 text-sm leading-relaxed sm:col-span-2">
+                {item.points.map((point) => (
+                  <li key={point} className="flex gap-3">
+                    <span aria-hidden="true" className="mt-2.5 h-px w-4 shrink-0 bg-foreground" />
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
           </li>
         ))}
       </ol>
@@ -94,16 +97,21 @@ export function Skills() {
 export function Education() {
   return (
     <Section id="education" index="04" title="Education">
-      <ul className="grid gap-px border border-foreground bg-foreground sm:grid-cols-2">
+      <ul className="border-t border-foreground">
         {education.map((item) => (
-          <li key={item.school} className="flex flex-col gap-6 bg-background p-6 md:p-8">
-            <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+          <li
+            key={item.school}
+            className="flex flex-col gap-2 border-b border-foreground/20 py-6 last:border-foreground sm:flex-row sm:items-baseline sm:justify-between sm:gap-8"
+          >
+            <div>
+              <h3 className="font-serif text-2xl leading-tight text-balance md:text-3xl">
+                {item.school}
+              </h3>
+              <p className="mt-1 text-sm text-muted-foreground">{item.detail}</p>
+            </div>
+            <p className="shrink-0 font-mono text-xs uppercase tracking-widest text-muted-foreground">
               {item.year}
             </p>
-            <div>
-              <h3 className="font-serif text-3xl leading-tight">{item.school}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{item.detail}</p>
-            </div>
           </li>
         ))}
       </ul>
@@ -115,6 +123,7 @@ export function Contact() {
   const channels = [
     { label: 'Email', value: profile.email, href: `mailto:${profile.email}` },
     { label: 'Phone', value: profile.phone, href: profile.phoneHref },
+    { label: 'LinkedIn', value: 'Serena Lie', href: profile.linkedinHref, external: true },
   ]
 
   return (
@@ -127,6 +136,9 @@ export function Contact() {
           <li key={channel.label} className="border-b border-foreground">
             <a
               href={channel.href}
+              {...('external' in channel && channel.external
+                ? { target: '_blank', rel: 'noopener noreferrer' }
+                : {})}
               className="group flex items-center justify-between gap-4 py-6 transition-colors hover:bg-foreground hover:text-background md:px-4"
             >
               <span className="text-xs uppercase tracking-[0.2em]">{channel.label}</span>

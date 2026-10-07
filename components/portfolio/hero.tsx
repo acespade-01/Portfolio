@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { ArrowDownRight } from 'lucide-react'
+import { ArrowDownRight, ArrowUpRight } from 'lucide-react'
 import { profile } from '@/lib/resume'
 
 export function Hero() {
@@ -45,13 +45,25 @@ export function Hero() {
         </figure>
       </div>
 
-      <a
-        href="#about"
-        className="mt-16 inline-flex items-center gap-2 text-sm underline-offset-4 hover:underline"
-      >
-        Read more
-        <ArrowDownRight className="size-4" aria-hidden="true" />
-      </a>
+      <div className="mt-16 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm">
+        <a
+          href="#about"
+          className="inline-flex items-center gap-2 underline-offset-4 hover:underline"
+        >
+          Read more
+          <ArrowDownRight className="size-4" aria-hidden="true" />
+        </a>
+        <a
+          href={profile.linkedinHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 border border-foreground px-3 py-1.5 transition-colors hover:bg-foreground hover:text-background"
+        >
+          LinkedIn
+          <ArrowUpRight className="size-4" aria-hidden="true" />
+        </a>
+        <span className="text-muted-foreground">{profile.location}</span>
+      </div>
     </section>
   )
 }
